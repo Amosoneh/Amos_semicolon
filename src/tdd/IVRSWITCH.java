@@ -64,6 +64,9 @@ public class IVRSWITCH {
                         System.out.println("Wrong selection");
                         break;
                 }
+            default:
+                System.out.println("Wrong selection");
+                break;
         }
     }
 }
