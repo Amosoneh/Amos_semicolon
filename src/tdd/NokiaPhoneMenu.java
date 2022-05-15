@@ -9,7 +9,7 @@ public class NokiaPhoneMenu {
     }
 
     private static void print(String message){
-        System.out.print(message);
+        System.out.println(message);
     }
     public static void main(String... args) {
         String prompt = """
@@ -34,89 +34,53 @@ public class NokiaPhoneMenu {
             case 1 -> showPhonebook();
             case 2 -> showMessage();
             case 3 -> {
-                print("Chat\n");
-                singleBackButton();
-                System.out.println();
+                print("Chat");
+                print("0. Back");
                 if(userInput() == 0) main();
             }
             case 4 -> showCallRegister();
             case 5 -> showTone();
             case 6 -> showSetting();
             case 7 -> {
-                print("Call divert\n");
-                singleBackButton();
-                System.out.println();
+                print("Call divert");
+                print("0. Back");
                 if(userInput() == 0) main();
             }
             case 8 -> {
-                print("Games\n");
-                singleBackButton();
-                System.out.println();
+                print("Games");
+                print("0. Back");
                 if(userInput() == 0) main();
             }
             case 9 -> {
-                print("Calculator\n");
-                singleBackButton();
-                System.out.println();
+                print("Calculator");
+                print("0. Back");
                 if(userInput() == 0) main();
             }
             case 10 -> {
-                print("Remainder\n");
-                singleBackButton();
-                System.out.println();
+                print("Remainder");
+                print("0. Back");
                 if(userInput() == 0) main();
             }
             case 11 -> showClock();
             case 12 -> {
-                print("Profiles\n");
-                singleBackButton();
-                System.out.println();
+                print("Profiles");
+                print("0. back");
                 if(userInput() == 0) main();
             }
             case 13 -> {
-                print("SIM services\n");
-                singleBackButton();
-                System.out.println();
+                print("SIM services");
+                print("0. Back");
                 if(userInput() == 0) main();
             }
             case 0 -> exit();
-            default -> print("Wrong input\n");
+            default -> print("Wrong input");
         }
-
-    }
-    private static void optionBackButton(){
-        switch (userInput()) {
-            case 0 -> showPhonebookOption();
-            case 1 -> main();
-        }
-    }
-    private static void showBackAndHomeButton(){
-        String button = """
-                0. Back
-                1. Main menu
-                """;
-        print(button);
-    }
-    private static void messageButton(){
-        switch (userInput()){
-            case 0 -> showMessage();
-            case 1 -> main();
-        }
-    }
-    private static void singleDisplayPhonebookButton(){
-        switch (userInput()){
-            case 0 -> showPhonebook();
-            case 1 -> main();
-        }
-    }
-    private static void singleBackButton(){
-        print("0. Back");
 
     }
     private static void exit(){
         System.exit(0);
     }
-    private static void showPhonebook(){
+    private static void showPhonebook() {
         String phonebookPrompt = """
             1. Search
             2. Service Nos.
@@ -132,44 +96,47 @@ public class NokiaPhoneMenu {
             """;
         print(phonebookPrompt);
         switch (userInput()) {
-            case 1 -> {print("Search\n");
-                showBackAndHomeButton();
-                singleDisplayPhonebookButton();
+            case 1 -> {print("Search");
+                print("0. Back");
+                if (userInput() == 0)showPhonebook();
             }
-            case 2 -> {print("Service Nos.\n");
-                showBackAndHomeButton();
-                singleDisplayPhonebookButton();}
-            case 3 -> {print("Add name\n");
-                showBackAndHomeButton();
-                singleDisplayPhonebookButton();}
+            case 2 -> {print("Service Nos.");
+                print("0. Back");
+                if (userInput() == 0)showPhonebook();
+            }
+            case 3 -> {print("Add name");
+                print("0. Back");
+                if (userInput() == 0)showPhonebook();
+            }
 
-            case 4 -> {print("Erase\n");
-                showBackAndHomeButton();
-                singleDisplayPhonebookButton();}
-            case 5 -> {print("Edit\n");
-                showBackAndHomeButton();
-                singleDisplayPhonebookButton();
+            case 4 -> {print("Erase");
+                print("0. Back");
+                if (userInput() == 0)showPhonebook();
+            }
+            case 5 -> {print("Edit");
+                print("0. Back");
+                if (userInput() == 0)showPhonebook();
             }
             case 6 -> {
-                print("Assign tone\n");
-                showBackAndHomeButton();
-                singleDisplayPhonebookButton();
+                print("Assign tone");
+                print("0. Back");
+                if (userInput() == 0)showPhonebook();
             }
             case 7 -> {
-                print("Send b'card\n");
-                showBackAndHomeButton();
-                singleDisplayPhonebookButton();
+                print("Send b'card");
+                print("0. Back");
+                if (userInput() == 0)showPhonebook();
             }
             case 8 -> showPhonebookOption();
             case 9 -> {
-                print("Speed dials\n");
-                showBackAndHomeButton();
-                singleDisplayPhonebookButton();
+                print("Speed dials");
+                print("0. Back");
+                if (userInput() == 0)showPhonebook();
             }
             case 10 -> {
-                print("Voice tags\n");
-                showBackAndHomeButton();
-                singleDisplayPhonebookButton();
+                print("Voice tags");
+                print("0. Back");
+                if (userInput() == 0)showPhonebook();
             }
             case 0 -> main();
             default -> print("Wrong input");
@@ -185,20 +152,20 @@ public class NokiaPhoneMenu {
         print(prompt);
         switch (userInput()) {
             case 1 -> {
-                print("Type of view\n");
-                showBackAndHomeButton();
-                optionBackButton();
+                print("Type of view");
+                print("0. Back");
+                if (userInput() == 0)showPhonebookOption();
             }
             case 2 -> {
-                print("Memory status\n");
-                showBackAndHomeButton();
-                optionBackButton();
+                print("Memory status");
+                print("0. Back");
+                if (userInput() == 0)showPhonebookOption();
             }
             case 0 -> showPhonebook();
             default -> {
                 print("Wrong input\n");
-                showBackAndHomeButton();
-                optionBackButton();
+                print("0. Back");
+                if (userInput() == 0)showPhonebookOption();
             }
         }
     }
@@ -219,51 +186,51 @@ public class NokiaPhoneMenu {
         print(messagePrompt);
         switch (userInput()) {
             case 1 -> {
-                print("Write messages\n");
-                showBackAndHomeButton();
-                messageButton();
+                print("Write messages");
+                print("0. Back");
+                if (userInput() == 0)showMessage();
 
             }
             case 2 -> {
-                print("Inbox\n");
-                showBackAndHomeButton();
-                messageButton();
+                print("Inbox");
+                print("0. Back");
+                if (userInput() == 0)showMessage();
             }
             case 3 -> {
                 print("Outbox");
-                showBackAndHomeButton();
-                messageButton();
+                print("0. Back");
+                if (userInput() == 0)showMessage();
             }
             case 4 -> {
                 print("Picture messages");
-                showBackAndHomeButton();
-                messageButton();
+                print("0. Back");
+                if (userInput() == 0)showMessage();
             }
             case 5 -> {
                 print("Templates");
-                showBackAndHomeButton();
-                messageButton();
+                print("0. Back");
+                if (userInput() == 0)showMessage();
             }
             case 6 -> {
                 print("Smileys");
-                showBackAndHomeButton();
-                messageButton();
+                print("0. Back");
+                if (userInput() == 0)showMessage();
             }
             case 7 -> showMessageSetting();
             case 8 -> {
                 print("Info services");
-                showBackAndHomeButton();
-                messageButton();
+                print("0. Back");
+                if (userInput() == 0)showMessage();
             }
             case 9 -> {
                 print("Voice mailbox number");
-                showBackAndHomeButton();
-                messageButton();
+                print("0. Back");
+                if (userInput() == 0)showMessage();
             }
             case 10 -> {
                 print("Service command editor");
-                showBackAndHomeButton();
-                messageButton();
+                print("0. Back");
+                if (userInput() == 0)showMessage();
             }
             case 0 -> main();
             default -> print("Wrong input");
@@ -292,21 +259,18 @@ public class NokiaPhoneMenu {
         print(prompt);
         switch (userInput()) {
             case 1 -> {
-                print("Message center number\n");
-                singleBackButton();
-                System.out.println();
+                print("Message center number");
+                print("0. Back");
                 if(userInput() == 0) showSetOption();
             }
             case 2 -> {
-                print("Message sent as\n");
-                singleBackButton();
-                System.out.println();
+                print("Message sent as");
+                print("0. Back");
                 if(userInput() == 0) showSetOption();
             }
             case 3 -> {
-                print("Message validity\n");
-                singleBackButton();
-                System.out.println();
+                print("Message validity");
+                print("0. Back");
                 if(userInput() == 0) showSetOption();
             }
             case 0 -> showMessageSetting();
@@ -323,21 +287,18 @@ public class NokiaPhoneMenu {
         print(prompt);
         switch (userInput()) {
             case 1 -> {
-                print("Delivery reports\n");
-                singleBackButton();
-                System.out.println();
+                print("Delivery reports");
+                print("0. Back");
                 if(userInput() == 0) showCommonOption();
             }
             case 2 -> {
-                print("Reply via same center\n");
-                singleBackButton();
-                System.out.println();
+                print("Reply via same center");
+                print("0. Back");
                 if(userInput() == 0) showCommonOption();
             }
             case 3 -> {
-                print("Character support\n");
-                singleBackButton();
-                System.out.println();
+                print("Character support");
+                print("0. Back");
                 if(userInput() == 0) showCommonOption();
             }
             case 0 -> showMessageSetting();
@@ -359,40 +320,35 @@ public class NokiaPhoneMenu {
         print(prompt);
         switch (userInput()) {
             case 1 -> {
-                print("Missed calls\n");
-                singleBackButton();
-                System.out.println();
+                print("Missed calls");
+                print("0. Back");
                 if(userInput() == 0) showCallRegister();
             }
             case 2 -> {
-                print("Received calls\n");
-                singleBackButton();
-                System.out.println();
+                print("Received calls");
+                print("0. Back");
                 if(userInput() == 0) showCallRegister();
             }
             case 3 -> {
-                print("Dialed calls\n");
-                singleBackButton();
-                System.out.println();
+                print("Dialed calls");
+                print("0. Back");
                 if(userInput() == 0) showCallRegister();
             }
             case 4 -> {
-                print("Erase recent call lists\n");
-                singleBackButton();
-                System.out.println();
+                print("Erase recent call lists");
+                print("0. Back");
                 if(userInput() == 0) showCallRegister();
             }
             case 5 -> showCallDuration();
             case 6 -> showCallCost();
             case 7 -> showCallCostSetting();
             case 8 -> {
-                print("Prepaid credit\n");
-                singleBackButton();
-                System.out.println();
+                print("Prepaid credit");
+                print("0. Back");
                 if(userInput() == 0) showCallRegister();
             }
             case 0-> main();
-            default -> print("Wrong input\n");
+            default -> print("Wrong input");
         }
     }
     private static void showCallCostSetting(){
@@ -404,15 +360,13 @@ public class NokiaPhoneMenu {
         print(prompt);
         switch (userInput()) {
             case 1 -> {
-                print("Call cost limit\n");
-                singleBackButton();
-                System.out.println();
+                print("Call cost limit");
+                print("0. Back");
                 if(userInput() == 0) showCallCostSetting();
             }
             case 2 -> {
-                print("Show cost in\n");
-                singleBackButton();
-                System.out.println();
+                print("Show cost in");
+                print("0. Back");
                 if(userInput() == 0) showCallCostSetting();
             }
             case 0 -> showCallRegister();
@@ -429,21 +383,18 @@ public class NokiaPhoneMenu {
         print(prompt);
         switch (userInput()) {
             case 1 -> {
-                print("Last call duration\n");
-                singleBackButton();
-                System.out.println();
+                print("Last call duration");
+                print("0. Back");
                 if(userInput() == 0) showCallCost();
             }
             case 2 -> {
                 print("All calls' duration\n");
-                singleBackButton();
-                System.out.println();
+                print("0. Back");
                 if(userInput() == 0) showCallCost();
             }
             case 3 -> {
                 print("Clear timers\n");
-                singleBackButton();
-                System.out.println();
+                print("0. Back");
                 if(userInput() == 0) showCallCost();
             }
             case 0 -> showCallRegister();
@@ -462,37 +413,32 @@ public class NokiaPhoneMenu {
         print(prompt);
         switch (userInput()) {
             case 1 -> {
-                print("Last call duration\n");
-                singleBackButton();
-                System.out.println();
+                print("Last call duration");
+                print("0. Back");
                 if(userInput() == 0) showCallDuration();
             }
             case 2 -> {
-                print("All calls' duration\n");
-                singleBackButton();
-                System.out.println();
+                print("All calls' duration");
+                print("0. Back");
                 if(userInput() == 0) showCallDuration();
             }
             case 3 -> {
-                print("Received call duration\n");
-                singleBackButton();
-                System.out.println();
+                print("Received call duration");
+                print("0. Back");
                 if(userInput() == 0) showCallDuration();
             }
             case 4 -> {
-                print("Dialed calls' duration\n");
-                singleBackButton();
-                System.out.println();
+                print("Dialed calls' duration");
+                print("0. Back");
                 if(userInput() == 0) showCallDuration();
             }
             case 5 -> {
-                print("Clear timers\n");
-                singleBackButton();
-                System.out.println();
+                print("Clear timers");
+                print("0. Back");
                 if(userInput() == 0) showCallDuration();
             }
             case 0 -> showCallRegister();
-            default -> print("Wrong input\n");
+            default -> print("Wrong input");
         }
     }
     private static void showTone(){
@@ -511,61 +457,52 @@ public class NokiaPhoneMenu {
         print(prompt);
         switch (userInput()) {
             case 1 -> {
-                print("Ringing tone\n");
-                singleBackButton();
-                System.out.println();
+                print("Ringing tone");
+                print("0. Back");
                 if(userInput() == 0) showTone();
             }
             case 2 -> {
-                print("Ringing volume\n");
-                singleBackButton();
-                System.out.println();
+                print("Ringing volume");
+                print("0. Back");
                 if(userInput() == 0) showTone();
             }
             case 3 -> {
-                print("Incoming call alert\n");
-                singleBackButton();
-                System.out.println();
+                print("Incoming call alert");
+                print("0. Back");
                 if(userInput() == 0) showTone();
             }
             case 4 -> {
-                print("Composer\n");
-                singleBackButton();
-                System.out.println();
+                print("Composer");
+                print("0. Back");
                 if(userInput() == 0) showTone();
             }
             case 5 -> {
-                print("Message alert tone\n");
-                singleBackButton();
-                System.out.println();
+                print("Message alert tone");
+                print("0. Back");
                 if(userInput() == 0) showTone();
             }
             case 6 -> {
-                print("Keypad tones\n");
-                singleBackButton();
-                System.out.println();
+                print("Keypad tones");
+                print("0. Back");
                 if(userInput() == 0) showTone();
             }
             case 7 -> {
-                print("Warning and gaming tones\n");
-                singleBackButton();
-                System.out.println();
+                print("Warning and gaming tones");
+                print("0. Back");
                 if(userInput() == 0) showTone();
             }
             case 8 -> {
-                print("Vibrating alert\n");
-                singleBackButton();
-                System.out.println();
+                print("Vibrating alert");
+                print("0. Back");
                 if(userInput() == 0) showTone();
             }
             case 9 -> {
-                print("Screen saver\n");
-                singleBackButton();
-                System.out.println();
+                print("Screen saver");
+                print("0. Back");
                 if(userInput() == 0) showTone();
             }
             case 0 -> main();
-            default -> print("Wrong input\n");
+            default -> print("Wrong input");
         }
     }
     private static void showSetting(){
@@ -582,9 +519,8 @@ public class NokiaPhoneMenu {
             case 2 -> showPhoneSetting();
             case 3 -> showSecuritySetting();
             case 4 -> {
-                print("Restore factory settings\n");
-                singleBackButton();
-                System.out.println();
+                print("Restore factory settings");
+                print("0. Back");
                 if(userInput() == 0) showSetting();
             }
             case 0 -> main();
@@ -605,42 +541,36 @@ public class NokiaPhoneMenu {
         switch (userInput()) {
             case 1 -> {
                 print("Alarm clock\n");
-                singleBackButton();
-                System.out.println();
+                print("0. Back");
                 if(userInput() == 0) showClock();
             }
             case 2 -> {
                 print("Clock setting\n");
-                singleBackButton();
-                System.out.println();
+                print("0. Back");
                 if(userInput() == 0) showClock();
             }
             case 3 -> {
                 print("Date setting\n");
-                singleBackButton();
-                System.out.println();
+                print("0. Back");
                 if(userInput() == 0) showClock();
             }
             case 4 -> {
-                print("Stopwatch\n");
-                singleBackButton();
-                System.out.println();
+                print("Stopwatch");
+                print("0. Back");
                 if(userInput() == 0) showClock();
             }
             case 5 -> {
-                print("Countdown timer\n");
-                singleBackButton();
-                System.out.println();
+                print("Countdown timer");
+                print("0. Back");
                 if(userInput() == 0) showClock();
             }
             case 6 -> {
-                print("Auto update of date and time\n");
-                singleBackButton();
-                System.out.println();
+                print("Auto update of date and time");
+                print("0. Back");
                 if(userInput() == 0) showClock();
             }
             case 0 -> main();
-            default -> print("Wrong input\n");
+            default -> print("Wrong input");
         }
     }
     private static void showCallSetting(){
@@ -656,43 +586,37 @@ public class NokiaPhoneMenu {
         print(prompt);
         switch (userInput()) {
             case 1 -> {
-                print("Automatic redial\n");
-                singleBackButton();
-                System.out.println();
+                print("Automatic redial");
+                print("0. Back");
                 if(userInput() == 0) showCallSetting();
             }
             case 2 -> {
-                print("Speed dialling\n");
-                singleBackButton();
-                System.out.println();
+                print("Speed dialling");
+                print("0. Back");
                 if(userInput() == 0) showCallSetting();
             }
             case 3 -> {
-                print("Call waiting options\n");
-                singleBackButton();
-                System.out.println();
+                print("Call waiting options");
+                print("0. Back");
                 if(userInput() == 0) showCallSetting();
             }
             case 4 -> {
-                print("Own number sending\n");
-                singleBackButton();
-                System.out.println();
+                print("Own number sending");
+                print("0. Back");
                 if(userInput() == 0) showCallSetting();
             }
             case 5 -> {
-                print("Phone line in use\n");
-                singleBackButton();
-                System.out.println();
+                print("Phone line in use");
+                print("0. Back");
                 if(userInput() == 0) showCallSetting();
             }
             case 6 -> {
-                print("Automatic answer\n");
-                singleBackButton();
-                System.out.println();
+                print("Automatic answer");
+                print("0. Back");
                 if(userInput() == 0) showCallSetting();
             }
             case 0 -> showSetting();
-            default -> print("Wrong input\n");
+            default -> print("Wrong input");
         }
     }
     private static void showPhoneSetting(){
@@ -708,43 +632,37 @@ public class NokiaPhoneMenu {
         print(prompt);
         switch (userInput()) {
             case 1 -> {
-                print("Language\n");
-                singleBackButton();
-                System.out.println();
+                print("Language");
+                print("0. Back");
                 if(userInput() == 0) showPhoneSetting();
             }
             case 2 -> {
-                print("Cell info display\n");
-                singleBackButton();
-                System.out.println();
+                print("Cell info display");
+                print("0. Back");
                 if(userInput() == 0) showPhoneSetting();
             }
             case 3 -> {
-                print("Welcome note\n");
-                singleBackButton();
-                System.out.println();
+                print("Welcome note");
+                print("0. Back");
                 if(userInput() == 0) showPhoneSetting();
             }
             case 4 -> {
-                print("Network selection\n");
-                singleBackButton();
-                System.out.println();
+                print("Network selection");
+                print("0. Back");
                 if(userInput() == 0) showPhoneSetting();
             }
             case 5 -> {
-                print("Lights\n");
-                singleBackButton();
-                System.out.println();
+                print("Lights");
+                print("0. Back");
                 if(userInput() == 0) showPhoneSetting();
             }
             case 6 -> {
-                print("Confirm Sim service actions\n");
-                singleBackButton();
-                System.out.println();
+                print("Confirm Sim service actions");
+                print("0. Back");
                 if(userInput() == 0) showPhoneSetting();
             }
             case 0 -> showSetting();
-            default -> print("Wrong input\n");
+            default -> print("Wrong input");
         }
     }
     private static void showSecuritySetting(){
@@ -760,43 +678,37 @@ public class NokiaPhoneMenu {
         print(prompt);
         switch (userInput()) {
             case 1 -> {
-                print("PIN code request\n");
-                singleBackButton();
-                System.out.println();
+                print("PIN code request");
+                print("0. Back");
                 if(userInput() == 0) showSecuritySetting();
             }
             case 2 -> {
-                print("Call barring service\n");
-                singleBackButton();
-                System.out.println();
+                print("Call barring service");
+                print("0. Back");
                 if(userInput() == 0) showSecuritySetting();
             }
             case 3 -> {
-                print("Fixed dialling\n");
-                singleBackButton();
-                System.out.println();
+                print("Fixed dialling");
+                print("0. Back");
                 if(userInput() == 0) showSecuritySetting();
             }
             case 4 -> {
-                print("Closed user group\n");
-                singleBackButton();
-                System.out.println();
+                print("Closed user group");
+                print("0. Back");
                 if(userInput() == 0) showSecuritySetting();
             }
             case 5 -> {
-                print("Phone security\n");
-                singleBackButton();
-                System.out.println();
+                print("Phone security");
+                print("0. Back");
                 if(userInput() == 0) showSecuritySetting();
             }
             case 6 -> {
-                print("Change access code\n");
-                singleBackButton();
-                System.out.println();
+                print("Change access code");
+                print("0. Back");
                 if(userInput() == 0) showSecuritySetting();
             }
             case 0 -> showSetting();
-            default -> print("Wrong input\n");
+            default -> print("Wrong input");
         }
     }
 }
