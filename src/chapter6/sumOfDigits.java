@@ -2,8 +2,8 @@ package chapter6;
 
 public class sumOfDigits {
     public static void main(String[] args) {
-        digitSum(123);
-        System.out.println(digitSum(123));
+
+        System.out.println(digitSum(7631));
 
     }
     private static int digitSum(int num){
