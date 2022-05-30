@@ -1,5 +1,7 @@
 package chapter7;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class SalesInvoice {
@@ -35,24 +37,18 @@ public class SalesInvoice {
         System.out.println("How much discount will customer get?");
         discount = s.nextInt();
         int size = 20;
+        String dateTime = new SimpleDateFormat("dd:MM:yy hh:mm:ss").format(new Date());
 
-        String prompt = """
-                        SEMICOLON STORES
-                        MAIN BRANCH
-                        LOCATION: 312 HERBERT MACAULAY WAY, SABO YABA, LAGOS.
-                        TEL: 08142227709
-                        DATE: 28/6/2022 5:22:45 pm.
-                        Cashier:""" + " " + cashier + "\nCustomer: " + userName;
-        System.out.println(prompt);
-        System.out.println("=======================================================");
+        System.out.printf("SEMICOLON STORES\nMAIN BRANCH\nLOCATION: 312 HERBERT MACAULAY WAY, SABO YABA, LAGOS.\nTEL: 08142227709\nDATE: %s%nCashier: %s%n",dateTime,cashier);
+        System.out.println("=".repeat(55));
         System.out.println("\t\tITEM\t\tQTY\t\tPRICE\t\tTOTAL(NGN)");
-        System.out.println("-------------------------------------------------------");
+        System.out.println("-".repeat(55));
         for (int i = 0; i < size; i++){
             if (name[i] != null || price[i] != 0 || number[i] !=0 || total[i] != 0) {
                 System.out.printf("%13s %8d %13.2f %13.2f%n", name[i], number[i], price[i], total[i]);
             }
         }
-        System.out.println("-------------------------------------------------------");
+        System.out.println("-".repeat(55));
         for (double v : total) {
             subTotal += v;
         }
@@ -61,13 +57,13 @@ public class SalesInvoice {
         System.out.printf("\t%35s  %.2f%n","Discount: ",discountPrice);
         double vat=(subTotal * 17.5)/100;
         System.out.printf("\t%35s  %.2f%n","VAT @ 17.50%: ",vat);
-        System.out.println("=======================================================");
+        System.out.println("=".repeat(55));
         double billTotal = subTotal + vat - discountPrice;
         System.out.printf("\t%35s  %.2f%n","Bill Total: ",billTotal);
         System.out.printf("\t%35s  %.2f%n","Amount paid: ",billTotal);
-        System.out.println("=======================================================");
+        System.out.println("=".repeat(55));
         System.out.println("\t\t\tTHANK YOU FOR YOUR PATRONAGE");
-        System.out.println("=======================================================");
+        System.out.println("=".repeat(55));
     }
 
 }
