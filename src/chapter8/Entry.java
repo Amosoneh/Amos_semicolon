@@ -1,2 +1,65 @@
-package chapter8;public class Entry {
+package chapter8;
+
+import java.time.LocalDate;
+import java.util.UUID;
+
+public class Entry {
+    private final String id;
+    private String title;
+    private String body;
+
+    private final LocalDate dateCreated = LocalDate.now();
+
+    public Entry(String title, String body){
+        this(UUID.randomUUID().toString(), title, body);
+    }
+
+    public Entry(String id, String title, String body) {
+        if(title.length() == 0){
+            throw new IllegalArgumentException("title can not be empty");
+        }
+        if(body.isEmpty()){
+            throw new IllegalArgumentException("body can not be empty");
+        }
+        this.id = id;
+        this.title = title;
+        this.body = body;
+
+    }
+
+    public String getId() {
+        return id;
+    }
+
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public LocalDate getDateCreated() {
+        return dateCreated;
+    }
+
+    @Override
+    public String toString(){
+        return ("ID: "+ getId()+
+                "\nTitle: " + getTitle()+
+                "\nBody: "+ getBody()+
+                "\nDate: "+ getDateCreated()
+        );
+    }
+
 }

@@ -11,4 +11,5 @@ public class HypotenuseCalc {
         double c = a + b;
         return Math.sqrt(c);
     }
+
 }

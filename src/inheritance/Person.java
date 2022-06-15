@@ -17,7 +17,27 @@ public class Person {
         this.maritalStatus = maritalStatus;
     }
 
+    public Gender getGender() {
+        return gender;
+    }
+
+    public MaritalStatus getMaritalStatus() {
+        return maritalStatus;
+    }
+
     public String getName(){
         return name;
+    }
+    public int getAge(){
+        return age;
+    }
+    @Override
+    public String toString(){
+        return ("Name: "+getName()+
+                "\nAge: "+ getAge()+
+                "\nGender: "+ getGender()+
+                "\nMarital Status: "+ getMaritalStatus()
+
+        );
     }
 }

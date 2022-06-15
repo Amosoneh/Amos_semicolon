@@ -26,7 +26,7 @@ class RectangleClassTest {
 
     @Test
     public void whenExceptionThrown_AssertionSucceeds(){
-        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->{newRec.setLength(150);});
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> newRec.setLength(150));
         assertEquals("length value is out of range", ex.getMessage());
     }
 }

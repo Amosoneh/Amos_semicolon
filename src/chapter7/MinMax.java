@@ -8,7 +8,7 @@ public class MinMax  {
         System.out.println("Enter a number or -0 to quit");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
-        int[] a ={3,-560,1077,8,10,-56,-100,67};
+        //int[] a ={3,-560,1077,8,10,-56,-100,67};
 //
 //        for (int i = 0; i < a.length; i++){
 //            if (a[i] > largest) largest = a[i];

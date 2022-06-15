@@ -1,4 +1,4 @@
-package ehis_tutorial;
+package inheritance;
 
 import inheritance.Cohort;
 import inheritance.Gender;
@@ -11,4 +11,5 @@ public class Ancestor extends Native {
         super(name, age, gender, maritalStatus, cohort);
         this.workPlace = workPlace;
     }
+
 }
